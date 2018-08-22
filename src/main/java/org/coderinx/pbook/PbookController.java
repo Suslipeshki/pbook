@@ -26,18 +26,18 @@ public class PbookController {
     return databaseService.find(id);
   }
 
-  @PutMapping("contacts/{id}")
-  public Contact changeContact(@PathVariable Integer id, @RequestBody Contact contact) {
-    return databaseService.change(id, contact);
+  @PutMapping("contacts")
+  public void changeContact(@RequestBody Contact contact) {
+    databaseService.change(contact);
   }
 
   @PostMapping("contacts")
-  public Contact createContact(@RequestBody Contact contact) {
+  public Contact createContact (@RequestBody Contact contact) {
     return databaseService.create(contact);
   }
 
   @DeleteMapping("contacts/{id}")
-  public boolean deleteContact(@PathVariable Integer id) {
-    return databaseService.delete(id);
+  public void deleteContact(@PathVariable Integer id) {
+    databaseService.delete(id);
   }
 }
